@@ -60,12 +60,12 @@ export interface BoardSnapshot {
 export type PetMood = 'idle' | 'cheer' | 'tense'
 
 export const COLOR_MAP: Record<BubbleColor, { fill: string; stroke: string; emoji: string; label: string }> = {
-  cat: { fill: '#FF9B9B', stroke: '#E07070', emoji: '🐱', label: '猫爪粉' },
-  dog: { fill: '#C4956A', stroke: '#A07850', emoji: '🐶', label: '狗骨棕' },
-  pig: { fill: '#FFB7C5', stroke: '#E095A5', emoji: '🐷', label: '猪鼻桃' },
-  fish: { fill: '#85C1E9', stroke: '#5FA0D0', emoji: '🐟', label: '奶鱼蓝' },
+  cat: { fill: '#FF9B9B', stroke: '#E07070', emoji: '�', label: '猫爪粉' },
+  dog: { fill: '#C4956A', stroke: '#A07850', emoji: '🦴', label: '狗骨棕' },
+  pig: { fill: '#FFB7C5', stroke: '#E095A5', emoji: '�', label: '猪鼻桃' },
+  fish: { fill: '#85C1E9', stroke: '#5FA0D0', emoji: '🍼', label: '奶鱼蓝' },
   clover: { fill: '#7DCEA0', stroke: '#50B07A', emoji: '🍀', label: '幸运草绿' },
-  orange: { fill: '#FFB347', stroke: '#E09530', emoji: '🍊', label: '阳光橙' },
+  orange: { fill: '#FFB347', stroke: '#E09530', emoji: '🧡', label: '阳光橙' },
 }
 
 export const ALL_COLORS: BubbleColor[] = ['cat', 'dog', 'pig', 'fish', 'clover', 'orange']
