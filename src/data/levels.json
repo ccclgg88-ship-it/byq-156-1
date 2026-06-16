@@ -1,0 +1,214 @@
+[
+  {
+    "id": 1,
+    "moves": 30,
+    "colors": ["cat", "dog", "pig", "fish"],
+    "targets": [{ "type": "eliminate", "color": "cat", "count": 15, "current": 0 }],
+    "obstacles": [],
+    "shuffleLimit": 3,
+    "maxRelaxValue": 80
+  },
+  {
+    "id": 2,
+    "moves": 30,
+    "colors": ["cat", "dog", "pig", "fish"],
+    "targets": [{ "type": "eliminate", "color": "dog", "count": 18, "current": 0 }],
+    "obstacles": [],
+    "shuffleLimit": 3,
+    "maxRelaxValue": 82
+  },
+  {
+    "id": 3,
+    "moves": 28,
+    "colors": ["cat", "dog", "pig", "fish"],
+    "targets": [
+      { "type": "eliminate", "color": "pig", "count": 15, "current": 0 },
+      { "type": "eliminate", "color": "fish", "count": 15, "current": 0 }
+    ],
+    "obstacles": [],
+    "shuffleLimit": 3,
+    "maxRelaxValue": 84
+  },
+  {
+    "id": 4,
+    "moves": 27,
+    "colors": ["cat", "dog", "pig", "fish"],
+    "targets": [{ "type": "collectSpecial", "count": 3, "current": 0 }],
+    "obstacles": [],
+    "shuffleLimit": 2,
+    "maxRelaxValue": 86
+  },
+  {
+    "id": 5,
+    "moves": 28,
+    "colors": ["cat", "dog", "pig", "fish"],
+    "targets": [
+      { "type": "eliminate", "color": "cat", "count": 20, "current": 0 },
+      { "type": "eliminate", "color": "dog", "count": 20, "current": 0 }
+    ],
+    "obstacles": [],
+    "bonusMoves": 5,
+    "shuffleLimit": 3,
+    "maxRelaxValue": 88
+  },
+  {
+    "id": 6,
+    "moves": 25,
+    "colors": ["cat", "dog", "pig", "fish", "clover"],
+    "targets": [{ "type": "eliminate", "color": "clover", "count": 20, "current": 0 }],
+    "obstacles": [],
+    "shuffleLimit": 2,
+    "maxRelaxValue": 90
+  },
+  {
+    "id": 7,
+    "moves": 25,
+    "colors": ["cat", "dog", "pig", "fish", "clover"],
+    "targets": [
+      { "type": "eliminate", "color": "cat", "count": 18, "current": 0 },
+      { "type": "eliminate", "color": "clover", "count": 12, "current": 0 }
+    ],
+    "obstacles": [],
+    "shuffleLimit": 2,
+    "maxRelaxValue": 92
+  },
+  {
+    "id": 8,
+    "moves": 23,
+    "colors": ["cat", "dog", "pig", "fish", "clover"],
+    "targets": [{ "type": "collectSpecial", "count": 4, "current": 0 }],
+    "obstacles": [
+      { "row": 3, "col": 3 },
+      { "row": 3, "col": 4 },
+      { "row": 4, "col": 3 },
+      { "row": 4, "col": 4 }
+    ],
+    "shuffleLimit": 2,
+    "maxRelaxValue": 94
+  },
+  {
+    "id": 9,
+    "moves": 22,
+    "colors": ["cat", "dog", "pig", "fish", "clover"],
+    "targets": [
+      { "type": "eliminate", "color": "pig", "count": 22, "current": 0 },
+      { "type": "eliminate", "color": "fish", "count": 22, "current": 0 }
+    ],
+    "obstacles": [
+      { "row": 2, "col": 2 },
+      { "row": 2, "col": 5 },
+      { "row": 5, "col": 2 },
+      { "row": 5, "col": 5 }
+    ],
+    "shuffleLimit": 2,
+    "maxRelaxValue": 96
+  },
+  {
+    "id": 10,
+    "moves": 23,
+    "colors": ["cat", "dog", "pig", "fish", "clover"],
+    "targets": [
+      { "type": "eliminate", "color": "dog", "count": 25, "current": 0 },
+      { "type": "collectSpecial", "count": 3, "current": 0 }
+    ],
+    "obstacles": [
+      { "row": 3, "col": 3 },
+      { "row": 3, "col": 4 },
+      { "row": 4, "col": 3 },
+      { "row": 4, "col": 4 }
+    ],
+    "bonusMoves": 5,
+    "shuffleLimit": 2,
+    "maxRelaxValue": 98
+  },
+  {
+    "id": 11,
+    "moves": 20,
+    "colors": ["cat", "dog", "pig", "fish", "clover", "orange"],
+    "targets": [{ "type": "eliminate", "color": "orange", "count": 25, "current": 0 }],
+    "obstacles": [
+      { "row": 1, "col": 1 },
+      { "row": 1, "col": 6 },
+      { "row": 6, "col": 1 },
+      { "row": 6, "col": 6 }
+    ],
+    "shuffleLimit": 2,
+    "maxRelaxValue": 100
+  },
+  {
+    "id": 12,
+    "moves": 18,
+    "colors": ["cat", "dog", "pig", "fish", "clover", "orange"],
+    "targets": [
+      { "type": "eliminate", "color": "cat", "count": 20, "current": 0 },
+      { "type": "eliminate", "color": "orange", "count": 20, "current": 0 }
+    ],
+    "obstacles": [
+      { "row": 2, "col": 3 },
+      { "row": 2, "col": 4 },
+      { "row": 5, "col": 3 },
+      { "row": 5, "col": 4 },
+      { "row": 3, "col": 2 },
+      { "row": 4, "col": 5 }
+    ],
+    "shuffleLimit": 2,
+    "maxRelaxValue": 104
+  },
+  {
+    "id": 13,
+    "moves": 18,
+    "colors": ["cat", "dog", "pig", "fish", "clover", "orange"],
+    "targets": [
+      { "type": "collectSpecial", "count": 5, "current": 0 },
+      { "type": "eliminate", "color": "clover", "count": 18, "current": 0 }
+    ],
+    "obstacles": [
+      { "row": 3, "col": 3 },
+      { "row": 3, "col": 4 },
+      { "row": 4, "col": 3 },
+      { "row": 4, "col": 4 }
+    ],
+    "shuffleLimit": 2,
+    "maxRelaxValue": 108
+  },
+  {
+    "id": 14,
+    "moves": 16,
+    "colors": ["cat", "dog", "pig", "fish", "clover", "orange"],
+    "targets": [
+      { "type": "eliminate", "color": "dog", "count": 25, "current": 0 },
+      { "type": "eliminate", "color": "pig", "count": 25, "current": 0 },
+      { "type": "collectSpecial", "count": 3, "current": 0 }
+    ],
+    "obstacles": [
+      { "row": 1, "col": 3 },
+      { "row": 1, "col": 4 },
+      { "row": 6, "col": 3 },
+      { "row": 6, "col": 4 },
+      { "row": 3, "col": 1 },
+      { "row": 4, "col": 6 }
+    ],
+    "shuffleLimit": 1,
+    "maxRelaxValue": 112
+  },
+  {
+    "id": 15,
+    "moves": 15,
+    "colors": ["cat", "dog", "pig", "fish", "clover", "orange"],
+    "targets": [
+      { "type": "eliminate", "color": "cat", "count": 30, "current": 0 },
+      { "type": "eliminate", "color": "orange", "count": 30, "current": 0 },
+      { "type": "collectSpecial", "count": 5, "current": 0 }
+    ],
+    "obstacles": [
+      { "row": 2, "col": 2 },
+      { "row": 2, "col": 5 },
+      { "row": 5, "col": 2 },
+      { "row": 5, "col": 5 },
+      { "row": 3, "col": 3 },
+      { "row": 4, "col": 4 }
+    ],
+    "shuffleLimit": 1,
+    "maxRelaxValue": 120
+  }
+]
