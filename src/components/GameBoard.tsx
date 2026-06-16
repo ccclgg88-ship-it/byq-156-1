@@ -72,6 +72,247 @@ const GameBoard = ({ cellSize = 48 }: GameBoardProps) => {
   const boardPixelSize = cellSize * BOARD_SIZE
   const padding = 4
 
+  const drawCatPaw = (ctx: CanvasRenderingContext2D, cx: number, cy: number, size: number, strokeColor: string) => {
+    ctx.save()
+    ctx.fillStyle = strokeColor
+    ctx.strokeStyle = 'rgba(255,255,255,0.8)'
+    ctx.lineWidth = 1
+
+    const mainPadRadius = size * 0.22
+    ctx.beginPath()
+    ctx.ellipse(cx, cy + size * 0.08, mainPadRadius, mainPadRadius * 0.85, 0, 0, Math.PI * 2)
+    ctx.fill()
+    ctx.stroke()
+
+    const toeRadius = size * 0.09
+    const toePositions = [
+      { x: cx - size * 0.22, y: cy - size * 0.18 },
+      { x: cx - size * 0.08, y: cy - size * 0.28 },
+      { x: cx + size * 0.08, y: cy - size * 0.28 },
+      { x: cx + size * 0.22, y: cy - size * 0.18 },
+    ]
+
+    toePositions.forEach((pos) => {
+      ctx.beginPath()
+      ctx.ellipse(pos.x, pos.y, toeRadius, toeRadius * 1.1, 0, 0, Math.PI * 2)
+      ctx.fill()
+      ctx.stroke()
+    })
+
+    ctx.restore()
+  }
+
+  const drawDogBone = (ctx: CanvasRenderingContext2D, cx: number, cy: number, size: number, strokeColor: string) => {
+    ctx.save()
+    ctx.fillStyle = strokeColor
+    ctx.strokeStyle = 'rgba(255,255,255,0.8)'
+    ctx.lineWidth = 1.5
+
+    const boneLength = size * 0.55
+    const boneWidth = size * 0.18
+    const endRadius = size * 0.16
+
+    ctx.translate(cx, cy)
+    ctx.rotate(-Math.PI / 6)
+
+    ctx.beginPath()
+    ctx.roundRect(-boneLength / 2, -boneWidth / 2, boneLength, boneWidth, boneWidth / 2)
+    ctx.fill()
+    ctx.stroke()
+
+    const ends = [
+      { x: -boneLength / 2, y: -boneWidth / 2 },
+      { x: -boneLength / 2, y: boneWidth / 2 },
+      { x: boneLength / 2, y: -boneWidth / 2 },
+      { x: boneLength / 2, y: boneWidth / 2 },
+    ]
+
+    ends.forEach((end) => {
+      ctx.beginPath()
+      ctx.arc(end.x, end.y, endRadius, 0, Math.PI * 2)
+      ctx.fill()
+      ctx.stroke()
+    })
+
+    ctx.restore()
+  }
+
+  const drawPigNose = (ctx: CanvasRenderingContext2D, cx: number, cy: number, size: number, strokeColor: string) => {
+    ctx.save()
+    ctx.fillStyle = strokeColor
+    ctx.strokeStyle = 'rgba(255,255,255,0.8)'
+    ctx.lineWidth = 1
+
+    const noseWidth = size * 0.5
+    const noseHeight = size * 0.38
+
+    ctx.beginPath()
+    ctx.ellipse(cx, cy, noseWidth / 2, noseHeight / 2, 0, 0, Math.PI * 2)
+    ctx.fill()
+    ctx.stroke()
+
+    ctx.fillStyle = 'rgba(120,60,60,0.7)'
+    const nostrilWidth = size * 0.1
+    const nostrilHeight = size * 0.16
+    const nostrilSpacing = size * 0.13
+
+    ctx.beginPath()
+    ctx.ellipse(cx - nostrilSpacing, cy, nostrilWidth, nostrilHeight, 0, 0, Math.PI * 2)
+    ctx.fill()
+
+    ctx.beginPath()
+    ctx.ellipse(cx + nostrilSpacing, cy, nostrilWidth, nostrilHeight, 0, 0, Math.PI * 2)
+    ctx.fill()
+
+    ctx.restore()
+  }
+
+  const drawFish = (ctx: CanvasRenderingContext2D, cx: number, cy: number, size: number, strokeColor: string) => {
+    ctx.save()
+    ctx.fillStyle = strokeColor
+    ctx.strokeStyle = 'rgba(255,255,255,0.8)'
+    ctx.lineWidth = 1
+
+    const bodyWidth = size * 0.4
+    const bodyHeight = size * 0.28
+
+    ctx.beginPath()
+    ctx.ellipse(cx - size * 0.05, cy, bodyWidth / 2, bodyHeight / 2, 0, 0, Math.PI * 2)
+    ctx.fill()
+    ctx.stroke()
+
+    ctx.beginPath()
+    ctx.moveTo(cx + size * 0.12, cy)
+    ctx.lineTo(cx + size * 0.32, cy - size * 0.18)
+    ctx.lineTo(cx + size * 0.32, cy + size * 0.18)
+    ctx.closePath()
+    ctx.fill()
+    ctx.stroke()
+
+    ctx.beginPath()
+    ctx.moveTo(cx - size * 0.1, cy - size * 0.08)
+    ctx.quadraticCurveTo(cx - size * 0.05, cy - size * 0.22, cx + size * 0.05, cy - size * 0.12)
+    ctx.lineTo(cx + size * 0.02, cy - size * 0.02)
+    ctx.closePath()
+    ctx.fill()
+    ctx.stroke()
+
+    ctx.fillStyle = '#FFFFFF'
+    ctx.beginPath()
+    ctx.arc(cx - size * 0.18, cy - size * 0.02, size * 0.04, 0, Math.PI * 2)
+    ctx.fill()
+
+    ctx.fillStyle = '#333'
+    ctx.beginPath()
+    ctx.arc(cx - size * 0.18, cy - size * 0.02, size * 0.025, 0, Math.PI * 2)
+    ctx.fill()
+
+    ctx.fillStyle = 'rgba(255,180,180,0.7)'
+    ctx.beginPath()
+    ctx.ellipse(cx - size * 0.1, cy + size * 0.05, size * 0.06, size * 0.04, 0, 0, Math.PI * 2)
+    ctx.fill()
+
+    ctx.restore()
+  }
+
+  const drawClover = (ctx: CanvasRenderingContext2D, cx: number, cy: number, size: number, strokeColor: string) => {
+    ctx.save()
+    ctx.fillStyle = strokeColor
+    ctx.strokeStyle = 'rgba(255,255,255,0.8)'
+    ctx.lineWidth = 1
+
+    const leafRadius = size * 0.14
+    const leafOffset = size * 0.12
+
+    const leaves = [
+      { x: cx, y: cy - leafOffset },
+      { x: cx - leafOffset, y: cy },
+      { x: cx + leafOffset, y: cy },
+      { x: cx, y: cy + leafOffset },
+    ]
+
+    leaves.forEach((leaf) => {
+      ctx.beginPath()
+      ctx.arc(leaf.x, leaf.y, leafRadius, 0, Math.PI * 2)
+      ctx.fill()
+      ctx.stroke()
+    })
+
+    ctx.fillStyle = 'rgba(255,255,255,0.6)'
+    ctx.beginPath()
+    ctx.arc(cx, cy, size * 0.05, 0, Math.PI * 2)
+    ctx.fill()
+
+    ctx.restore()
+  }
+
+  const drawHeart = (ctx: CanvasRenderingContext2D, cx: number, cy: number, size: number, strokeColor: string) => {
+    ctx.save()
+    ctx.fillStyle = strokeColor
+    ctx.strokeStyle = 'rgba(255,255,255,0.8)'
+    ctx.lineWidth = 1
+
+    const heartSize = size * 0.28
+
+    ctx.beginPath()
+    ctx.moveTo(cx, cy + heartSize * 0.4)
+    ctx.bezierCurveTo(
+      cx, cy + heartSize * 0.1,
+      cx - heartSize * 0.5, cy - heartSize * 0.2,
+      cx - heartSize * 0.5, cy
+    )
+    ctx.bezierCurveTo(
+      cx - heartSize * 0.5, cy + heartSize * 0.3,
+      cx, cy + heartSize * 0.55,
+      cx, cy + heartSize * 0.55
+    )
+    ctx.bezierCurveTo(
+      cx, cy + heartSize * 0.55,
+      cx + heartSize * 0.5, cy + heartSize * 0.3,
+      cx + heartSize * 0.5, cy
+    )
+    ctx.bezierCurveTo(
+      cx + heartSize * 0.5, cy - heartSize * 0.2,
+      cx, cy + heartSize * 0.1,
+      cx, cy + heartSize * 0.4
+    )
+    ctx.fill()
+    ctx.stroke()
+
+    ctx.fillStyle = 'rgba(255,255,255,0.5)'
+    ctx.beginPath()
+    ctx.ellipse(cx - heartSize * 0.2, cy - heartSize * 0.05, heartSize * 0.1, heartSize * 0.06, -0.5, 0, Math.PI * 2)
+    ctx.fill()
+
+    ctx.restore()
+  }
+
+  const drawPetElement = (ctx: CanvasRenderingContext2D, color: BubbleColor, cx: number, cy: number, size: number) => {
+    const colorInfo = COLOR_MAP[color]
+    const strokeColor = colorInfo.stroke
+
+    switch (color) {
+      case 'cat':
+        drawCatPaw(ctx, cx, cy, size, strokeColor)
+        break
+      case 'dog':
+        drawDogBone(ctx, cx, cy, size, strokeColor)
+        break
+      case 'pig':
+        drawPigNose(ctx, cx, cy, size, strokeColor)
+        break
+      case 'fish':
+        drawFish(ctx, cx, cy, size, strokeColor)
+        break
+      case 'clover':
+        drawClover(ctx, cx, cy, size, strokeColor)
+        break
+      case 'orange':
+        drawHeart(ctx, cx, cy, size, strokeColor)
+        break
+    }
+  }
+
   const drawBubble = useCallback(
     (
       ctx: CanvasRenderingContext2D,
@@ -123,10 +364,7 @@ const GameBoard = ({ cellSize = 48 }: GameBoardProps) => {
 
         ctx.fillText(icon, centerX, centerY)
       } else {
-        ctx.font = `${radius * 0.9}px sans-serif`
-        ctx.textAlign = 'center'
-        ctx.textBaseline = 'middle'
-        ctx.fillText(colorInfo.emoji, centerX, centerY)
+        drawPetElement(ctx, color, centerX, centerY, size * scale)
       }
 
       if (isSelected) {
